@@ -241,21 +241,24 @@ public class SimulateUI : MonoBehaviour
         emptyElement.gameObject.SetActive(false);
 
 
-        if (newWorkspace.signal == 0)
+        if (newWorkspace.signal <= 0)
         {
-            emptyElement.gameObject.SetActive(true);
-            emptyElement.SignalName = signals[0];
+            signalElements[10].gameObject.SetActive(true);
         }
         else
         {
-            if (newWorkspace.signal < signalElements.Length)
+            if (newWorkspace.signal <= signalElements.Length)
             {
-                signalElements[newWorkspace.signal].gameObject.SetActive(true);
+                signalElements[newWorkspace.signal - 1].gameObject.SetActive(true);
+            }
+            else if (newWorkspace.signal < signals.Length)
+            {
+                emptyElement.gameObject.SetActive(true);
+                emptyElement.GetComponentInChildren<TMP_Text>().text = signals[newWorkspace.signal - 1];
             }
             else
             {
-                emptyElement.gameObject.SetActive(true);
-                emptyElement.GetComponentInChildren<TMP_Text>().text = signals[newWorkspace.signal];
+                signalElements[10].gameObject.SetActive(true);
             }
         }
 
