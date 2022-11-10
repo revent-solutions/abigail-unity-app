@@ -266,8 +266,16 @@ public class SimulateUI : MonoBehaviour
 
 
         // Task를 업데이트할 때
-        for(int i = 0; i < Mathf.Min(newWorkspace.tasks.Length, 3); i++)
+        for(int i = 0; i < 3; i++)
         {
+            if (i >= newWorkspace.tasks.Count(elem => string.IsNullOrEmpty(elem) == false))
+            {
+                elements[i].gameObject.SetActive(false);
+                continue;
+            }
+
+            elements[i].gameObject.SetActive(true);
+
             elements[i].taskNameText.text = newWorkspace.tasks[i];
 
             if (newWorkspace.istasks[i])
