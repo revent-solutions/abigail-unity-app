@@ -347,6 +347,14 @@ public class SimulateUI : MonoBehaviour
 
     private void OnEnable()
     {
+        foreach (var elem in elements)
+        {
+            elem.gameObject.SetActive(false);
+        }
+
+        emptyElement.gameObject.SetActive(false);
+        signalElements[10].gameObject.SetActive(true);
+
         currentWorkspace = null;
         videoPlayer.Play();
 
