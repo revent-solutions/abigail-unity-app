@@ -349,7 +349,7 @@ public class SimulateUI : MonoBehaviour
 
     private void OnDisable()
     {
-        videoPlayer.Stop();
+        videoPlayer.Pause();
 
         settingButton.onClick.RemoveListener(OnClickSettingButton);
 
