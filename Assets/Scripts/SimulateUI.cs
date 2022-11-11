@@ -254,7 +254,7 @@ public class SimulateUI : MonoBehaviour
             else if (newWorkspace.signal < signals.Length)
             {
                 emptyElement.gameObject.SetActive(true);
-                emptyElement.GetComponentInChildren<TMP_Text>().text = signals[newWorkspace.signal - 1];
+                emptyElement.GetComponentInChildren<TMP_Text>().text = signals[newWorkspace.signal];
             }
             else
             {
